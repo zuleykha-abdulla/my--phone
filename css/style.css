@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  background-color: #221f49;
+  color: #e7e5ee;
+}
+h1 {
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  background: #121d1f;
+}
+/* header daxilinde top-div parametr ile tenzimlenir*/
+
+.top-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  height: 95px;
+}
+/* navbar start*/
+
+.navbar-brand {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  color: #faf3f3;
+}
+
+.nav-list {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-list li a {
+  color: #ece9e9;
+}
+
+/*navbar-phone parametr tetbiq edilir*/
+
+.navbar-phone {
+  display: none;
+  flex-direction: column;
+  height: min-content;
+  cursor: pointer;
+}
+
+/*navbar-phone daxilinde barlara parametr tetbiq edilir*/
+
+.navbar-phone .bar {
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #e7e5ee;
+  border-radius: 10%;
+  transition: 0.4s;
+}
+
+input {
+  display: none;
+}
+/**/
+input:checked ~ .nav-list {
+  transform: translateY(19px);
+}
+/* input daxilinde x yeni close elementi yaratmaq ucun*/
+
+input:checked ~ .navbar-phone .bar:nth-child(1) {
+  position: absolute;
+  transform: rotate(45deg);
+  right: 25px;
+  top: 25px;
+}
+
+input:checked ~ .navbar-phone .bar:nth-child(2) {
+  display: none;
+}
+
+input:checked ~ .navbar-phone .bar:nth-child(3) {
+  position: absolute;
+  transform: rotate(-45deg);
+  right: 25px;
+  top: 25px;
+}
+
+/* 0-675px  olanda navbar-kecid tenzimlenir*/
+
+@media screen and (max-width: 675px) {
+  .navbar-phone {
+    display: flex;
+  }
+
+  /* mobil versiya ucun navbara parametr tetbiq edilir*/
+
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    background-color: #170941;
+    width: 100%;
+    z-index: 2;
+    transform: translateY(-200%);
+    transition: 0.6s;
+  }
+
+  .nav-list li {
+    padding: 10px;
+  }
+
+  .nav-list li a {
+    color: #fff;
+  }
+}
+
+/* image elave edib ona hereket animasiyasi tetbiq edek*/
+
+.box {
+  background-image: url();
+  position: relative;
+  animation: mymove 5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes mymove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 200px;
+  }
+}
